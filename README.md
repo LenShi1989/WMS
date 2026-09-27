@@ -257,6 +257,17 @@ cd wms-web && npm run build
 
 ---
 
+## 部署
+
+| 環境 | 文件 |
+|---|---|
+| Ubuntu + Nginx | [`deploy/ubuntu-nginx-deployment-sop.md`](deploy/ubuntu-nginx-deployment-sop.md) |
+| Windows + Docker | [`deploy/docker/windows-docker-deployment-sop.md`](deploy/docker/windows-docker-deployment-sop.md) |
+
+兩份 SOP 都包含完整的設定檔內容、更新流程、備份還原與上線前檢查清單。
+
+---
+
 ## v1.0 範圍
 
 **已包含**：登入、RBAC、物料 / 分類 / 單位 / 條碼、倉庫 / 儲區 / 儲位、入庫 / 收貨 /
