@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Wms.Api/Wms.Api.csproj" />
+    <Project Path="src/Wms.Application/Wms.Application.csproj" />
+    <Project Path="src/Wms.Domain/Wms.Domain.csproj" />
+    <Project Path="src/Wms.Infrastructure/Wms.Infrastructure.csproj" />
+  </Folder>
+</Solution>

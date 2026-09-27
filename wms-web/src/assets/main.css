@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+
+/* 深色模式改用 class 控制，配合 app store 的 toggleTheme。 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-slate-100 text-slate-800 antialiased dark:bg-slate-900 dark:text-slate-100;
+    font-family: var(--font-sans);
+  }
+
+  /* 表單元件全站一致的外觀 */
+  input[type='text'],
+  input[type='number'],
+  input[type='password'],
+  input[type='date'],
+  input[type='email'],
+  input[type='search'],
+  select,
+  textarea {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800
+           shadow-sm transition outline-none
+           placeholder:text-slate-400
+           focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20
+           disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400
+           dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100
+           dark:placeholder:text-slate-500 dark:disabled:bg-slate-800/60;
+  }
+
+  select {
+    @apply pr-8;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium
+           transition select-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium
+           transition select-none disabled:cursor-not-allowed disabled:opacity-50
+           bg-blue-600 text-white shadow-sm hover:bg-blue-700 active:bg-blue-800;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium
+           transition select-none disabled:cursor-not-allowed disabled:opacity-50
+           border border-slate-300 bg-white text-slate-700 hover:bg-slate-50
+           dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium
+           transition select-none disabled:cursor-not-allowed disabled:opacity-50
+           bg-rose-600 text-white hover:bg-rose-700;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium
+           transition select-none disabled:cursor-not-allowed disabled:opacity-50
+           text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700;
+  }
+
+  .btn-sm {
+    @apply px-2.5 py-1 text-xs;
+  }
+
+  .card {
+    @apply rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300;
+  }
+
+  .link {
+    @apply font-medium text-blue-600 hover:text-blue-700 hover:underline dark:text-blue-400;
+  }
+}
+
+/* 捲軸樣式，讓側邊欄與表格區看起來一致 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background-color: rgb(148 163 184 / 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(100 116 139 / 0.7);
+}
